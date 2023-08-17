@@ -46,4 +46,25 @@ inquirer
         },
         
     ])
-    
+    .then((answers) => {
+        //The answers given to each question above is passed to the generateMarkdown file to be processed.
+        console.log('creating file. . .');
+        const markdown = generateMarkdown(answers);
+        fs.writeFile(`./Generated/${answers.fn}.md`, markdown, (err) => {
+            if (err) {
+              console.log('UH OH! There was an error creating the file!\n');
+              console.log('Error: ' + err);
+            } else {
+              console.log('The file was created successfully!');
+            };
+        });
+    })
+    .catch((error) => {
+        if (error.isTtyError) {
+            // Prompt couldn't be rendered in the current environment
+        } else {
+            // Something else went wrong
+        }
+    });
+// Function call to initialize app
+init();
