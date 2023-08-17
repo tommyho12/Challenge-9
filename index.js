@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 var fs = require('fs');
 var inquirer = require('inquirer');
-const generateMarkdown = require('./utils/generateMarkdown');
+const generateMarkdown = require('./utils/generator');
 
 // TODO: Create a function to initialize app
 function init() {}
